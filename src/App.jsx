@@ -17,8 +17,8 @@ const App = () => {
             setIsLoading(true);
             setError(null);
 
-            const res = await fetch("/api/items");
-            if(!res.ok) throw new Error("Failed to fetch items");
+            const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+            if(!res.ok) throw new Error(`Server Error: ${res.status}`);
 
             const data = await res.json();
             setItems(data);
@@ -31,7 +31,7 @@ const App = () => {
 
     // POST
     const addItem = async (newItem) =>{
-        const res = await fetch("/api/items", {
+        const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newItem)
@@ -43,7 +43,7 @@ const App = () => {
     
     // DELETE
     const deleteItem = async (id) =>{
-        await fetch(`/api/items/${id}`, {method: "DELETE"})
+        await fetch(`"https://jsonplaceholder.typicode.com/posts"${id}`, {method: "DELETE"})
         setItems((prev) => prev.filter(item => item.id !== id));
     }
 

@@ -20,12 +20,7 @@ const ItemForm = ({onAdd}) => {
         <form onSubmit={submit}>
             <h2>Add Task</h2>
 
-            <input value={title} onChange = {(e) => setTitle(e.target.value)} placeholder="Task title" required/>
-
-            <select value={status} onChange={(e) => setStatus(e.target.value)}>
-                <option value="pending">Pending</option>
-                <option value="done">Done</option>
-            </select>
+            <input id="taskTitle" value={title} onChange = {(e) => setTitle(e.target.value)} placeholder="Task title" required/>
 
             <button disabled={isSaving}>
                 {isSaving ? "Saving..." : "Add Task"}

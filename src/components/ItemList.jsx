@@ -1,6 +1,6 @@
 import ItemCard from "./ItemCard";
 
-const ItemList = (items, onDelete) => {
+const ItemList = ({items, onDelete}) => {
     return (
         <div>
             {items.map((item) =>(

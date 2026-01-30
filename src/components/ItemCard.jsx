@@ -2,9 +2,9 @@ const ItemCard = ({item, onDelete}) => {
     return(
         <div className="card">
             <h3>{item.title}</h3>
-            <p>Status: {item.status}</p>
-            <p>Date: {new Date(item.createdAt).toLocaleDateString()}</p>
-            <button onClick={(() => onDelete(item.id))}></button>
+            <p>{item.body}</p>
+            <p>User ID: {item.userId}</p>
+            <button onClick={(() => onDelete(item.id))}>Delete</button>
         </div>
     )
 }
