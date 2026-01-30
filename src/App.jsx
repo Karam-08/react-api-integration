@@ -21,7 +21,9 @@ const App = () => {
             if(!res.ok) throw new Error(`Server Error: ${res.status}`);
 
             const data = await res.json();
-            setItems(data);
+
+            const shuffled = [...data].sort(() => Math.random() - 0.5); // Shuffles people
+            setItems(shuffled.slice(0, 10)); // Takes 10 shuffled people to display
         }catch(err){
             setError(err.message);
         }finally{
@@ -38,7 +40,7 @@ const App = () => {
         })
 
         const savedItem = await res.json();
-        setItems((prev) => [...prev, savedItem]);
+        setItems((prev) => [savedItem, ...prev]); // New task is seen first
     }
     
     // DELETE
